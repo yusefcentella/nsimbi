@@ -419,7 +419,7 @@ function calendario(){
   <h3 style="margin-top:20px">Todas las lunas ${evidBadge("C")}</h3>
   ${D.luna.map(r=>`<div class="card"><b>${esc(r[0])}</b> <span class="mute small">— ${esc(r[1])}</span><br>${nsLinks(r[2])}<br><span class="mute small">${esc(r[3])}</span></div>`).join("")}
   <p class="small mute"><a href="#/evidencia">Qué significan las letras A/B/C →</a></p>
-  <p class="note">La fase lunar y el momento del día se calculan en tu dispositivo, de forma aproximada. Las cuatro fases son las del Capítulo 7. <a href="#/libro/7">Leer el capítulo →</a></p>`;
+  <p class="note">La fase lunar y el momento del día se calculan en tu dispositivo, de forma aproximada. Las cuatro fases son las del Capítulo 7. Lo de las mareas es astronomía, no tradición: las vivas ocurren en luna nueva y llena, y las muertas en los cuartos. <a href="#/libro/7">Leer el capítulo →</a></p>`;
 }
 
 /* Calendario siempre al día: se vuelve a calcular al cambiar el momento del día, la fecha o al volver a la app */
