@@ -84,7 +84,7 @@ function evidencia(){
   ${evidLegendCard()}
   <div class="card"><h3>Dónde se usan en esta app</h3><ul class="ticks">
     <li><b>${esc("A — "+"Historia del Reino Kongo, linaje y el Dikenga")}</b> (Cap. 1, 2, 9, 12, 13): documentados en fuentes académicas (MacGaffey, Van Wing, Thompson).</li>
-    <li><b>C — El sistema de los 16 Makindu, los 256 caminos, el catálogo de Nsimbi, el calendario de lunas y el Nkisi</b> (Oráculo, Nsimbi, Cap. 5 a 8, Apéndices): es un modelo propio del libro, no una práctica documentada tal cual en archivos históricos.</li>
+    <li><b>C — El sistema de los 16 Makindu, los 256 caminos, el catálogo de Nsimbi, el calendario de lunas y el Nkisi</b> (Oráculo, Nsimbi, Cap. 5 a 8, Apéndices): es un modelo propio del libro, no una práctica documentada tal cual en archivos históricos. La palabra «makindu» se usa como nombre técnico de los 16 estados: en el diccionario de Laman (1936) significa «bromas, burlas».</li>
     <li><b>C/P — La definición y etimología de "Nsimbi"</b> (Cap. 3): propuesta a la espera de una referencia exacta.</li>
   </ul><p class="small mute" style="margin-top:10px">Esta clasificación no está en el libro Nsimbi; se toma de cómo el autor evalúa ese mismo contenido en otro de sus trabajos.</p></div>`;
 }
@@ -260,7 +260,7 @@ function nsimbiDetail(n){
     ${nk.length?`<dt>Nkisi</dt><dd>${nk.map(r=>esc(r[0])+": "+esc(r[2])).join("<br>")}</dd>`:""}
   </dl></div>
   ${n.texto.map(t=>`<p style="font-family:var(--serif);font-size:18px;line-height:1.7">${esc(t)}</p>`).join("")}
-  ${n.fuentes?`<p class="note">Fuentes: ${esc(n.fuentes)}</p>`:""}
+  ${n.fuentes?`<p class="note">Lecturas de contexto: ${esc(n.fuentes)}</p>`:""}
   <div class="pager">${prev?`<a class="btn ghost" href="#/nsimbi/${encodeURIComponent(prev.nombre)}">← ${esc(prev.nombre)}</a>`:"<span></span>"}${next?`<a class="btn ghost" href="#/nsimbi/${encodeURIComponent(next.nombre)}">${esc(next.nombre)} →</a>`:""}</div>`;
 }
 
@@ -416,6 +416,7 @@ function calendario(){
   <div class="strip">${days.map(({d,a},i)=>`<div class="day ${i===0?"hoy":""}">${d.toLocaleDateString("es",{weekday:"short"})}<br><b>${d.getDate()}</b>${moonSVG(a)}<span>${moonPhase(a).replace("Luna ","").replace("Cuarto ","C. ")}</span></div>`).join("")}</div>
   <h3 style="margin-top:20px">Los cuatro momentos del Dikenga ${evidBadge("A/B")}</h3>${fig("cosmograma")}
   ${D.dikenga.map(r=>`<div class="dk"><span class="dot" style="background:${colorOf[r[2]]}"></span><div><b>${esc(r[1])}</b> · ${esc(r[3])} <span class="mute small">(${esc(r[2])})</span><br><span class="mute small">${esc(r[4])}</span></div></div>`).join("")}
+  <p class="small mute" style="margin:.4em 0 0">Los colores asignados a cada momento varían entre autores y dibujos.</p>
   <h3 style="margin-top:20px">Todas las lunas ${evidBadge("C")}</h3>
   ${D.luna.map(r=>`<div class="card"><b>${esc(r[0])}</b> <span class="mute small">— ${esc(r[1])}</span><br>${nsLinks(r[2])}<br><span class="mute small">${esc(r[3])}</span></div>`).join("")}
   <p class="small mute"><a href="#/evidencia">Qué significan las letras A/B/C →</a></p>
