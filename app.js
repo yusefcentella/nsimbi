@@ -13,14 +13,14 @@ const chapterNum=k=>{const m=/(\d+)/.exec(k);return m?+m[1]:null};
 const nsLink=n=>nsByName[n.toLowerCase()]?`<a href="#/nsimbi/${encodeURIComponent(n)}">${esc(n)}</a>`:esc(n);
 const nsLinks=txt=>txt.split(/\s*,\s*/).map(nsLink).join(", ");
 /* ---------- Niveles de evidencia ----------
-   No están en el libro Nsimbi. Se toman de cómo el "Manual de Tradiciones Kongo Kalunga"
+   No están en el libro Nsimbi. Se toman de cómo el manual "KALUNGA — Manual de estudio"
    (del mismo autor) clasifica ese mismo contenido en su "Compendio de la obra Nsimbi"
    y en sus capítulos de cosmología general. Es una referencia aparte aplicada aquí, no una
    nota del propio libro. */
 const EVID_DEF=[
   ["A","Respaldado por literatura académica publicada.","Citar con libro, capítulo y página."],
   ["B","Interpretación razonable apoyada en la literatura.","Presentar como lectura de un autor."],
-  ["C","Modelo o reconstrucción propia de este manual.","Presentar siempre como propuesta, no como hecho."],
+  ["C","Modelo o reconstrucción propia del autor.","Presentar siempre como propuesta, no como hecho."],
   ["P","Por localizar: falta referencia exacta.","No usar como prueba hasta encontrar la fuente."]
 ];
 const EVID_COLOR={A:"#5fae7a",B:"#7fa8c9",C:"#e0a93f",P:"#c9503f"};
@@ -33,7 +33,7 @@ function evidBadge(lv,big){
 }
 function evidLegendCard(){
   return `<div class="card"><h3>Niveles de evidencia</h3>
-  <p class="small mute">Tomados del Manual de Tradiciones Kongo Kalunga (mismo autor), que clasifica así su propio contenido. Esta app los aplica como guía aparte, no como una nota del libro Nsimbi.</p>
+  <p class="small mute">Tomados de <i>KALUNGA — Manual de estudio</i> (mismo autor), que clasifica así su propio contenido. Esta app los aplica como guía aparte, no como una nota del libro Nsimbi.</p>
   <dl class="kv">${EVID_DEF.map(([k,s,u])=>`<dt><span class="evid big" style="--ec:${EVID_COLOR[k]}">${k}</span></dt><dd><b>${esc(s)}</b><br><span class="small mute">${esc(u)}</span></dd>`).join("")}</dl></div>`;
 }
 const CFG=window.NSIMBI_CFG||{};
